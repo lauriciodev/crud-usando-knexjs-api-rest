@@ -8,7 +8,7 @@ app.use(express.json());
 //settings routes
 app.use("/", require("./routes"));
 
-app.listen(3000, (erro) => {
+app.listen(4000, (erro) => {
   if (erro) {
     console.log("erro ao execultar");
   } else {
