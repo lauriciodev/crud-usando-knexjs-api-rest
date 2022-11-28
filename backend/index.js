@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+//settings cors
+app.use(cors());
 
 //settings parser
 app.use(express.urlencoded({ extended: false }));
