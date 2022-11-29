@@ -11,6 +11,9 @@ app.use(express.json());
 
 //settings routes
 app.use("/", require("./routes"));
+app.use("*", (req, res) => {
+  res.status(404).json({ msg: "teste de mensagem" });
+});
 
 app.listen(4000, (erro) => {
   if (erro) {

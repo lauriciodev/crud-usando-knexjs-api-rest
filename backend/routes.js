@@ -16,6 +16,8 @@ router.get("/games", (req, res) => {
     });
 });
 
+//create route
+
 router.post("/games", (req, res) => {
   let { id, nome, preco } = req.body;
 
@@ -34,6 +36,45 @@ router.post("/games", (req, res) => {
   } else {
     res.status(400);
     res.json({ erro: "dados inválidos" });
+  }
+});
+
+//delete route
+router.delete("/games/:id", (req, res) => {
+  let id = req.params.id;
+  databaseConnection
+    .where({ id: id })
+    .delete()
+    .table("games")
+    .then((data) => {
+      res.status(200);
+      res.json({ status: " game deletado" });
+    })
+    .catch((erro) => {
+      res.status(404);
+      res.json({ erro: "parametro inválido" });
+    });
+});
+
+//update route
+router.put("/games/:id", (req, res) => {
+  let id = Number(req.params.id);
+  let { nome, preco } = req.body;
+
+  if (id != undefined || !isNaN(id)) {
+    databaseConnection
+      .where({ id: id })
+      .update({ nome: nome, preco: preco })
+      .table("games")
+      .then((data) => {
+        res.json({ resultado: "game atualizado" });
+        res.status(200);
+      })
+      .catch((erro) => {
+        console.log(erro);
+      });
+  } else {
+    res.json({ erro: "erro ao execultar" });
   }
 });
 
