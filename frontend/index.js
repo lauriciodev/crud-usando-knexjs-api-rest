@@ -1,5 +1,5 @@
 let myGames = [];
-
+//estou tentando deixar dados locais
 axios
   .get("http://localhost:4000/games")
   .then((response) => {
