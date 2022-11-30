@@ -20,18 +20,65 @@
   </head>
   <body>
     <div class="container mt-4">
-      <button class="btn btn-dark fixed-bottom w-25 mx-auto mb-3" id="new">
+      <button
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        class="btn btn-dark fixed-bottom w-25 mx-auto mb-3"
+        id="new"
+      >
         novo game
       </button>
       <h1 class="display-1 text-success text-center">game-x</h1>
-      <table class="table border w-50 mx-auto">
-        <thead class="bg-dark text-white">
-          <th>nome</th>
-          <th>preço</th>
-          <th>ações</th>
-        </thead>
-        <tbody id="content"></tbody>
-      </table>
+      <div class="container col-md-50 col-sm-100">
+        <table class="table w-100 border mx-auto">
+          <thead class="bg-dark text-white">
+            <th>nome</th>
+            <th>preço</th>
+            <th>ações</th>
+          </thead>
+          <tbody id="content"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Jogo</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <form action="" class="form">
+              <input class="w-75 mb-1" type="text" placeholder="nome" />
+              <input class="w-75" type="number" placeholder="preço" />
+            </form>
+            <div class="container mt-2">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-dark">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
