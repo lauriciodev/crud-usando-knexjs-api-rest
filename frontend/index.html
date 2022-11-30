@@ -27,7 +27,7 @@
         class="btn btn-dark fixed-bottom w-25 mx-auto mb-3"
         id="new"
       >
-        novo game
+        novo jogo
       </button>
       <h1 class="display-1 text-success text-center">game-x</h1>
       <div class="container col-md-50 col-sm-100">
@@ -62,19 +62,33 @@
             ></button>
           </div>
           <div class="modal-body text-center">
-            <form action="" class="form">
-              <input class="w-75 mb-1" type="text" placeholder="nome" />
-              <input class="w-75" type="number" placeholder="preço" />
+            <form class="form text-center">
+              <input
+                id="nome"
+                name="nome"
+                class="form-control w-100 mb-1"
+                type="text"
+                placeholder="nome"
+              />
+              <input
+                id="preco"
+                name="preco"
+                class="form-control w-100"
+                type="number"
+                placeholder="preço"
+              />
             </form>
-            <div class="container mt-2">
+            <div class="container text-left mt-2">
               <button
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                cancelar
               </button>
-              <button type="submit" class="btn btn-dark">Save changes</button>
+              <button type="button" onclick="criarGame()" class="btn btn-dark">
+                criar
+              </button>
             </div>
           </div>
         </div>
