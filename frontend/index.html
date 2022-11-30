@@ -17,6 +17,15 @@
     />
 
     <script src=" https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js "></script>
+
+    <style>
+      #modal__edit {
+        display: none;
+      }
+      .open {
+        display: block !important;
+      }
+    </style>
   </head>
   <body>
     <div class="container mt-4">
@@ -40,6 +49,20 @@
           <tbody id="content"></tbody>
         </table>
       </div>
+    </div>
+
+    <!-- edit modal-->
+
+    <div class="container w-25 bg-dark p-4" id="modal__edit">
+      <button class="btn btn-danger position-absolute" onclick="openModal()">
+        X
+      </button>
+      <form class="d-flex gap-2 flex-column mt-5 mb-1">
+        <input class="form-control" type="text" id="nome_edit" />
+        <input class="form-control" type="text" id="preco_edit" />
+      </form>
+      <button class="btn btn-danger" onclick="openModal()">cancelar</button>
+      <button class="btn btn-success">salvar</button>
     </div>
 
     <!-- Modal -->

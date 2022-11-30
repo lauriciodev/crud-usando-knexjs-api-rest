@@ -1,3 +1,7 @@
+function openModal() {
+  document.getElementById("modal__edit").classList.toggle("open");
+}
+
 function loadGames() {
   axios
     .get("http://localhost:4000/games")
@@ -9,11 +13,11 @@ function loadGames() {
         <td class="border">${data.nome}</td>
         <td class="border bg-secondary text-white">${data.preco}</td>
         <td class="border text-center" style="width: 90px">
-          <button class="rounded-3 bg-dark text-white border-2">
-            <i class="bi bi-trash3-fill"></i>
+          <button class="border-0  text-danger ">
+            <i class="bi bi-trash3-fill h5" data-id="delete" id=${data.id}></i>
           </button>
-          <button class="rounded-3 bg-dark text-white border-2">
-            <i class="bi bi-pencil-fill"></i>
+          <button class=" border-0 text-primary ">
+            <i class="bi bi-pencil-fill h5" data-id="edit" id=${data.id}></i>
           </button>
         </td>
        `;
@@ -52,4 +56,25 @@ function criarGame() {
     });
 }
 
-//deletando games
+document.getElementById("content").addEventListener("click", (event) => {
+  let element = event.target;
+  let id = element.id;
+  let action = element.dataset.id;
+
+  //deletando games
+  if (action == "delete") {
+    if (confirm("deseja realmente deletar este jogo?")) {
+      axios
+        .delete("http://localhost:4000/games/" + id)
+        .then((response) => {
+          alert("jogo deletado com sucesso");
+          window.location.reload();
+        })
+        .catch((erro) => {
+          alert("erro ao deletar");
+        });
+    }
+  } else {
+    openModal();
+  }
+});
