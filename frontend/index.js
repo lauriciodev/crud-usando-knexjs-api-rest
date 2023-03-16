@@ -56,6 +56,8 @@ function criarGame() {
     });
 }
 
+//lauricio
+
 document.getElementById("content").addEventListener("click", (event) => {
   let element = event.target;
   let id = element.id;
